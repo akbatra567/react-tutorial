@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+import MainHeader  from './components/MainHeader';
+import NewEntryForm from './components/NewEntryForm';
 import './App.css';
+import DisplayBalance from './components/DisplayBalance';
+import DisplayBalances from './components/DisplayBalances';
+import EntryLine from './components/EntryLine';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      
+      <MainHeader title='Budget'/>
+      <DisplayBalance size="small" title="Your Balance:" value="2550.23"/>
+
+      <DisplayBalances/>
+
+      <MainHeader type='h3' title='History'/>
+      <EntryLine description='Oh bete' value='10' isExpense/>
+      <EntryLine description='somrg' value='23123' />    
+      <EntryLine description='samose' value='30' isExpense/>
+      <EntryLine description='somrg' value='23123' />
+    
+      <MainHeader type='h3' title='Add new transaction' />
+      <NewEntryForm/>
+    </Container>
   );
 }
 
